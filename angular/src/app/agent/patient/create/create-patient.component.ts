@@ -29,6 +29,9 @@ export class CreatePatientComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject();
   private agentId: string;
   statesList: string[] = SelectValueService.states;
+  shoeSizes: number[] = SelectValueService.shoeSizes;
+  heights: string[] = SelectValueService.heights;
+
   privateInsurance: boolean;
   medicareInsurance: boolean;
   bothInsurance: boolean;
@@ -54,6 +57,11 @@ export class CreatePatientComponent implements OnInit, OnDestroy {
       middleName: new FormControl('', Validators.maxLength(100)),
       lastName: new FormControl('', [Validators.required, Validators.maxLength(100)]),
       dateOfBirth: new FormControl('', [Validators.required]),
+      weight: new FormControl('', [Validators.required, CustomValidators.onlyNumeric]),
+      height: new FormControl('', [Validators.required]),
+      waist: new FormControl('', [Validators.required, CustomValidators.onlyNumeric]),
+      shoes: new FormControl('', [Validators.required]),
+      allergies: new FormControl('', [Validators.required]),
       phoneNumber: new FormControl('', [Validators.required, CustomValidators.phonenumber]),
       addressLineOne: new FormControl('', [Validators.required, Validators.maxLength(100)]),
       addressLineTwo: new FormControl('', Validators.maxLength(100)),
@@ -131,6 +139,11 @@ export class CreatePatientComponent implements OnInit, OnDestroy {
     patient.lastName = this.form.controls['lastName'].value;
     patient.dateOfBirth = this.form.controls['dateOfBirth'].value;
     patient.phoneNumber = this.formatHelper.toNumbersOnly(this.form.controls['phoneNumber'].value);
+    patient.waist = this.form.controls['waist'].value;
+    patient.shoeSize = this.form.controls['shoes'].value;
+    patient.height = this.form.controls['height'].value;
+    patient.weight = this.form.controls['weight'].value;
+    patient.allergies = this.form.controls['allergies'].value;
 
     patient.language = this.form.controls['language'].value;
     patient.callBackImmediately = this.form.controls['callBackImmediately'].value;

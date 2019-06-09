@@ -36,4 +36,9 @@ export class Patient {
     public isDme: boolean;
     public createdOn: Date;
     public modifiedOn: Date;
+    public weight: string;
+    public height: string;
+    public shoeSize: string;
+    public waist: string;
+    public allergies: string;
 }

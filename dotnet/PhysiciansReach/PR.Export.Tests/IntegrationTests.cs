@@ -192,19 +192,21 @@ namespace PR.Export.Tests
                 IntakeFormType = Constants.Enums.IntakeFormType.PainDmeOnly,
                 ICD10 = new ICD10
                 {
+                    //2. Clear out, move to Description
                     Code = "Lower Back pain m54.5 low back pain, m53.2x7 spinal instabilities, lumbosacral region, g89.4 chronic pain,m51.36 lumbar disc degeneration"
                             ,
-                    Description = "L0650(Lumbar - sacral orthosis.Sagittal control with rigid anterior and posterior panels, " +
-                            "posterior panels, posterior extends from Sacrococcygeal junction to the T-9 vertebra, lateral strength, " +
-                            "with rigid lateral panels, prefabricated and off the shelf. Custom fitting of the orthosis is not required " +
-                            "and the patient or an assisting care giver can apply the prescribed orthotic device with minimal self - adjusting.)"
+                    //1. Move to HCPCS
+                    Description = "Lower Back pain m54.5 low back pain, m53.2x7 spinal instabilities, lumbosacral region, g89.4 chronic pain,m51.36 lumbar disc degeneration"
                 },
                 HCPCS = new HCPCS
                 {
-                    Code = "L293",
+                    Code = "L0650",
                     Product = "Back Brace",
-                    Description = "HCPCS Description",
-                    Duration = "69 Years"
+                    Description = "(Lumbar - sacral orthosis.Sagittal control with rigid anterior and posterior panels, " +
+                            "posterior panels, posterior extends from Sacrococcygeal junction to the T-9 vertebra, lateral strength, " +
+                            "with rigid lateral panels, prefabricated and off the shelf. Custom fitting of the orthosis is not required " +
+                            "and the patient or an assisting care giver can apply the prescribed orthotic device with minimal self - adjusting.)",
+                    Duration = "99/lifetime"
                 },
                 Physician = new Physician
                 {
@@ -279,7 +281,12 @@ namespace PR.Export.Tests
                     SubscriberNumber = "33333",
                     SecondaryCarrier = "Geico",
                     SecondarySubscriberNumber = "4444"
-                }
+                },
+                Weight = "160",
+                Height = "5'7",
+                ShoeSize = "10.5",
+                Waist = "32",
+                Allergies = "Soy, Dairy, Fish, Shrimp"
             };
         }
 
@@ -296,12 +303,7 @@ namespace PR.Export.Tests
             questions.Add(CreateQuestionAnswer(intakeFormId, "Other or Previous Helpful Treatments(Brace, Physical Therapy, Meds)", "PreviousTreatment", "Brace Helped"));
             questions.Add(CreateQuestionAnswer(intakeFormId, "Affects Activities of Daily Living(ADL) (If so, what?)", "EffectsDaily", "All movement effected"));
             questions.Add(CreateQuestionAnswer(intakeFormId, "If yes, what type of surgery?", "Surgies", "Back surgery twice"));
-            questions.Add(CreateQuestionAnswer(intakeFormId, "Pain Rating", "PainLevel", "7"));
-            questions.Add(CreateQuestionAnswer(intakeFormId, "Height", "Height", "5''7"));
-            questions.Add(CreateQuestionAnswer(intakeFormId, "Weight", "Weight", "160"));
-            questions.Add(CreateQuestionAnswer(intakeFormId, "Shoe size", "ShoeSize", "10.5"));
-            questions.Add(CreateQuestionAnswer(intakeFormId, "Waist", "Waist", "32"));
-            questions.Add(CreateQuestionAnswer(intakeFormId, "Allergies current", "Allergies", "eggs, dairy"));
+            questions.Add(CreateQuestionAnswer(intakeFormId, "Pain Rating", "PainLevel", "7"));         
             return questions;
         }
 

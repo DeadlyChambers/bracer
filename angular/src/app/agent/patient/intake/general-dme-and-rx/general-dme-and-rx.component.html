@@ -34,17 +34,17 @@
                 </mat-form-field>
 
                 <mat-label>4. What is your shoe size?</mat-label>
-                <mat-form-field>
-                    <select matNativeControl placeholder="Shoe Size" formControlName="q4">
-                            <option *ngFor="let shoeSize of shoeSizes" [value]="shoeSize">{{shoeSize}}</option>
-                        
+                    <mat-form-field>
+                        <select matNativeControl placeholder="Shoe Size" formControlName="q4">
+                                <option *ngFor="let shoeSize of shoeSizes" [value]="shoeSize">{{shoeSize}}</option>
+                            
 
-                    </select>
-                    <mat-error *ngIf="form.get('q4').hasError('required') && form.get('q4').touched">Please enter the
-                        shoe
-                        size.
-                    </mat-error>
-                </mat-form-field>
+                        </select>
+                        <mat-error *ngIf="form.get('q4').hasError('required') && form.get('q4').touched">Please enter the
+                            shoe
+                            size.
+                        </mat-error>
+                    </mat-form-field>
 
 
                 <mat-label>5. What is your waist size?</mat-label>

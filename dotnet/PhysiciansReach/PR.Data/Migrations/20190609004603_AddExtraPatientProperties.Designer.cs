@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PR.Constants.Enums;
 using PR.Data.Models;
@@ -10,9 +11,10 @@ using PR.Data.Models;
 namespace PR.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190609004603_AddExtraPatientProperties")]
+    partial class AddExtraPatientProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -446,9 +448,6 @@ namespace PR.Data.Migrations
                         .HasMaxLength(100);
 
                     b.Property<string>("Waist")
-                        .HasMaxLength(3);
-
-                    b.Property<string>("Weight")
                         .HasMaxLength(3);
 
                     b.HasKey("PatientId")
